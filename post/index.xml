@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 示例站点</title>
+    <link>https://uggmycar.github.io/post/</link>
+    <description>Recent content in Posts on 示例站点</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 16 Aug 2021 16:16:26 +0800</lastBuildDate><atom:link href="https://uggmycar.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>身份验证</title>
+      <link>https://uggmycar.github.io/p/%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/</link>
+      <pubDate>Mon, 16 Aug 2021 16:16:26 +0800</pubDate>
+      
+      <guid>https://uggmycar.github.io/p/%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/</guid>
+      <description>前言    邮件类型 特点      简单邮件 不能解析html语言，发送的为原本文本，不能加附件发送    复杂邮件 可以选择是否解析html语言，能加附件发送     依赖 邮件配置的
+手机短信的
+目录  1.发送邮件  1.1申请邮件授权码（这里是qq的） 1.2applicaton配置 1.3简单邮件发送 1.4复杂邮件发送 1.5发送邮件自定义模板  1.5.1使用模板的注意事项     2.手机验证码  2.1初始化 2.2配置 2.3设置http超时与id和Secret 2.4固定部分 2.5填发送对象手机号短信签名与短信模板 2.6用json形的字符串改短信模板中的参数    发送邮件 申请邮件授权码（这里是qq的）
+applicaton配置
+1.qq邮箱的配置
+2.163邮箱的配置
+其它邮箱的配置只要改对应的host那些就行
+简单邮件发送
+@Autowired JavaMailSenderImpl MailSender; @Test void contextLoads() { //建简单邮件对象  SimpleMailMessage MailMessage = new SimpleMailMessage(); //邮件设置  MailMessage.</description>
+    </item>
+    
+    <item>
+      <title>模拟浏览器发请求</title>
+      <link>https://uggmycar.github.io/p/%E6%A8%A1%E6%8B%9F%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%91%E8%AF%B7%E6%B1%82/</link>
+      <pubDate>Fri, 13 Aug 2021 09:04:24 +0800</pubDate>
+      
+      <guid>https://uggmycar.github.io/p/%E6%A8%A1%E6%8B%9F%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%91%E8%AF%B7%E6%B1%82/</guid>
+      <description>前言 模拟浏览器发请求有两种
+   第几种 原理 优点     第一种 HttpURLConnection 配合 流处理 拿状态码等头文件容易   第二种 HttpGet（模拟发送） 配合 CloseableHttpResponse（处理返回值） 解析字符串数据自动拿字符集（接口拿json用它）    目录  1.第一种代码  1.1初始化 1.2模拟浏览器   2.第二种代码  2.1初始化 2.2将url绑定到HttpGet里 2.3向浏览器请求 2.4拿到请求返回来的结果 2.5对请求返回的请求体解析 2.6结尾   3.json解析器  第一种代码 初始化
+InputStream inputStream=null; //这个网站返回的是gbk字符集  String urladdress=&amp;#34;http://whois.pconline.com.cn/ipJson.jsp?ip=&amp;#34;+&amp;#34;117.178.141.106&amp;#34;+&amp;#34;&amp;amp;json=true&amp;#34;; String jsonStr = &amp;#34;&amp;#34;; URL url; 模拟浏览器
+1.用url创建HttpURLConnection对象
+2.HttpURLConnection设置头文件属性以及连接属性
+3.httpConn.setDoInput(true)设置是浏览器输出数据
+try {// 获取url连接对象  url = new URL(urladdress); //根据url创建http对象  HttpURLConnection httpConn = (HttpURLConnection) url.</description>
+    </item>
+    
+    <item>
+      <title>第三方登入</title>
+      <link>https://uggmycar.github.io/p/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%85%A5/</link>
+      <pubDate>Tue, 10 Aug 2021 10:20:15 +0800</pubDate>
+      
+      <guid>https://uggmycar.github.io/p/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%85%A5/</guid>
+      <description>引入第三方登入  1：在第三方应用处申请Client ID和Client secrets 2：回调函数拿code
+3：根据code拿令牌
+4：根据令牌拿用户数据
+ git登入 在git申请 1.在git的Settings的Developer settings里创建一个应用申请
+2.网站用OAuth Apps
+3.注意这里的主页地址是要已经在网上发布的地址（如果是本地测试可以用GitHub Apps一样填法）
+4.申请好后，在这里可以看自己的Client ID和Client secrets
+SpringBoot里使用 1.先要向git发起请求，git收到请求发送code到指定的回调函数里
+2.然后带code发起get请求，向git拿令牌
+3.拿令牌向git发起get请求（这里最新是将token令牌放到头文件【Authorization:token 令牌】里发送，有空格这里），拿用户信息
+控制层代码
+@Controller public class GitController { @GetMapping(&amp;#34;/&amp;#34;) public String index(){ return &amp;#34;index&amp;#34;; } @GetMapping(&amp;#34;/login&amp;#34;) public String login(Model model){ model.addAttribute(&amp;#34;success&amp;#34;,&amp;#34;成功登入&amp;#34;); return &amp;#34;login&amp;#34;; } @GetMapping(&amp;#34;/gitlogin&amp;#34;) public String Gitlogin(HttpSession session){ //随机uuid,用于第三方应用防止CSRF攻击  String uuid= UUID.randomUUID().toString().replaceAll(&amp;#34;-&amp;#34;,&amp;#34;&amp;#34;); session.setAttribute(&amp;#34;state&amp;#34;,uuid); //向git请求code  String gitlogin=&amp;#34;https://github.com/login/oauth/authorize?&amp;#34;;	//固定的  String client_id=&amp;#34;client_id=&amp;#34;+&amp;#34;填自己的Client ID&amp;#34;;	//自己修改  String callback=&amp;#34;填自己的回调地址&amp;#34;;	//自己修改  String redirect=&amp;#34;&amp;amp;redirect_uri=&amp;#34;+ URLEncoder.</description>
+    </item>
+    
+    <item>
+      <title>看板娘</title>
+      <link>https://uggmycar.github.io/p/%E7%9C%8B%E6%9D%BF%E5%A8%98/</link>
+      <pubDate>Mon, 09 Aug 2021 19:47:50 +0800</pubDate>
+      
+      <guid>https://uggmycar.github.io/p/%E7%9C%8B%E6%9D%BF%E5%A8%98/</guid>
+      <description>演示效果bug  这里有个bug当放右下角时会 质壁分离（误~。~）在waifu-tips.js有源码可以修改
+ 注：博主绝对不是因为不会而不改的呢
+ 注意：博客的md文件里必须顶格不然标签不生效
+原理：靠jq写入直接写到body里
+要自动配置看板娘语言要改waifu-tips.json文件里的配置
+ 第一种看板娘第一种写法 &amp;lt;!-- waifu-tips.js 依赖 JQuery 库--&amp;gt; &amp;lt;script src=&amp;#34;https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!-- 实现拖动效果，需引入 JQuery UI --&amp;gt; &amp;lt;script src=&amp;#34;https://cdn.jsdelivr.net/npm/jquery-ui-dist@1.12.1/jquery-ui.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!-- 自定义加载(要用jq表达式) https://cdn.jsdelivr.net/gh/uggmycar/live2d@4.0/assets/autoload.js  --&amp;gt; &amp;lt;script src= &amp;#34;https://cdn.jsdelivr.net/gh/uggmycar/live2d@4.0/assets/autoload.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;    第一种看板娘的第二种写法（可在写时自定义） &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; type=&amp;#34;text/css&amp;#34; href=&amp;#34;https://blog-static.cnblogs.com/files/Tangent-1231/waifu.css&amp;#34;/&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; type=&amp;#34;text/css&amp;#34; href=&amp;#34;https://files.cnblogs.com/files/yjlblog/flat-ui.min.css&amp;#34;/&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; type=&amp;#34;text/css&amp;#34; href=&amp;#34;https://live2d-cdn.fghrsh.net/assets/1.4.2/waifu.min.css&amp;#34;/&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; type=&amp;#34;text/css&amp;#34; href=&amp;#34;https://cdn.jsdelivr.net/gh/uggmycar/live2d@latest/assets/waifu.min.css&amp;#34;/&amp;gt; &amp;lt;!-- waifu-tips.js 依赖 JQuery 库--&amp;gt; &amp;lt;script src=&amp;#34;https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!-- 实现拖动效果，需引入 JQuery UI --&amp;gt; &amp;lt;script src=&amp;#34;https://cdn.jsdelivr.net/npm/jquery-ui-dist@1.12.1/jquery-ui.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!-- 人物材质--&amp;gt; &amp;lt;script src=&amp;#34;https://cdn.</description>
+    </item>
+    
+    <item>
+      <title>Git学习</title>
+      <link>https://uggmycar.github.io/p/git%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Tue, 03 Aug 2021 08:33:30 +0800</pubDate>
+      
+      <guid>https://uggmycar.github.io/p/git%E5%AD%A6%E4%B9%A0/</guid>
+      <description>git流程 git开发 1.在本地创建本地仓库
+2.创建远程仓库
+3.将开发人加入团队
+git命令效果    代码 用法     clone 将代码下到本地仓库   push 将代码从本地分支放到远程分支（创建远程分支）   pull 将本地分支与远程仓库某分支合并   checkout 切换分支或者创建分支（保存在本地仓库里）   add 将本地代码放到暂存区   commit 将暂存区代码放到对应分支里保存     git流程图 
+分支解释 各个分支就是各个文件（保存其本地文件的文件）
+分支放在本地仓库
+ 分支图 
+gif文件存在状态  本地仓库与工作区文件变换图 
+简单点说 本地文件先add在commit后会到仓库里
+文件被编辑后会变为modified状态，需要在add与commit才能将编辑后的文件放到仓库里
+git命令  git命令（部分） 
+   代码 用法     git init 第一次要在这个文件夹下初始化gitgit   git add .</description>
+    </item>
+    
+    <item>
+      <title>建博客教程</title>
+      <link>https://uggmycar.github.io/p/%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://uggmycar.github.io/p/%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</guid>
+      <description>安装hugo 用hugo version 看安装是否成功
+用hugo建博客 访问这个网址下载对应喜欢的主题
+hugo new site （站点名） &amp;ndash;创建博客站点（初始化博客目录 ）
+git clone （themes资源） &amp;ndash;将资源放到站点内（注意要在站点根目录下用）
+hugo new post/（博客名.md）&amp;ndash;创建自己的博客（注意draft: true要去掉）  吐槽：我用的博客，博客名必须叫index.md且放不同文件夹下，不然图片访问不到。。。 
+预览自己博客 hugo server	&amp;ndash;访问127.0.0.1:1313端口预览
+#发布自己博客 hugo &amp;ndash;baseUrl=&amp;ldquo;仓库地址&amp;rdquo; &amp;ndash;buildDrafts	&amp;ndash;会生成public文件夹，同时站点监听域名（buildDrafts表示包括被标记为draft的文章；）
+hugo	&amp;ndash;生成并更新public（之后可这样）
+cd public	&amp;ndash;进入public
+git init	&amp;ndash;第一次要在这个文件夹下初始化git
+git add .	&amp;ndash;提交所有文件到暂存区
+git status	&amp;ndash;可看提交的内容是否成功
+git commit -m &amp;ldquo;我的hugo博客第一次提交&amp;rdquo;	&amp;ndash;提示内容且放到本地仓库
+注意创建时要/自己github号.github.io
+git remote add origin https://github.com/（自己git号）/(仓库地址).git	&amp;ndash;第一次要将本地仓库与远程仓库建立联系
+这里出错了可以先 git remote rm origin	&amp;ndash;之前有建可删除在重新绑定发布地址
+git push -u origin master	&amp;ndash;输入自己账号密码，提交(第一次要)</description>
+    </item>
+    
+  </channel>
+</rss>

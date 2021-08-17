@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='用java代码模拟浏览器发请求'><title>模拟浏览器发请求</title>
+
+<link rel='canonical' href='https://uggmycar.github.io/p/%E6%A8%A1%E6%8B%9F%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%91%E8%AF%B7%E6%B1%82/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='模拟浏览器发请求'>
+<meta property='og:description' content='用java代码模拟浏览器发请求'>
+<meta property='og:url' content='https://uggmycar.github.io/p/%E6%A8%A1%E6%8B%9F%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%91%E8%AF%B7%E6%B1%82/'>
+<meta property='og:site_name' content='示例站点'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-08-13T09:04:24&#43;08:00'/><meta property='article:modified_time' content='2021-08-13T09:04:24&#43;08:00'/><meta property='og:image' content='https://uggmycar.github.io/p/%E6%A8%A1%E6%8B%9F%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%91%E8%AF%B7%E6%B1%82/1.jpg' />
+<meta name="twitter:site" content="@棉花糖">
+    <meta name="twitter:creator" content="@棉花糖"><meta name="twitter:title" content="模拟浏览器发请求">
+<meta name="twitter:description" content="用java代码模拟浏览器发请求"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://uggmycar.github.io/p/%E6%A8%A1%E6%8B%9F%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%91%E8%AF%B7%E6%B1%82/1.jpg' />
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="https://uggmycar.github.io/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E6%A8%A1%E6%8B%9F%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%91%E8%AF%B7%E6%B1%82/">
+                <img src="/p/%E6%A8%A1%E6%8B%9F%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%91%E8%AF%B7%E6%B1%82/1_hu06eb82f7409391596f1430388ea03ec8_291484_800x0_resize_q75_box.jpg"
+                        srcset="/p/%E6%A8%A1%E6%8B%9F%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%91%E8%AF%B7%E6%B1%82/1_hu06eb82f7409391596f1430388ea03ec8_291484_800x0_resize_q75_box.jpg 800w, /p/%E6%A8%A1%E6%8B%9F%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%91%E8%AF%B7%E6%B1%82/1_hu06eb82f7409391596f1430388ea03ec8_291484_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="422" 
+                        loading="lazy"
+                        alt="Featured image of post 模拟浏览器发请求" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/p/%E6%A8%A1%E6%8B%9F%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%91%E8%AF%B7%E6%B1%82/">模拟浏览器发请求</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        用java代码模拟浏览器发请求
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 13, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 min read
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="font-face宋体-colorbrown前言font"><font face="宋体" color=brown>前言</font></h2>
+<p>模拟浏览器发请求有两种</p>
+<table>
+<thead>
+<tr>
+<th>第几种</th>
+<th>原理</th>
+<th>优点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="link" href="#1" >第一种</a></td>
+<td>HttpURLConnection 配合 流处理</td>
+<td>拿状态码等头文件容易</td>
+</tr>
+<tr>
+<td><a class="link" href="#2" >第二种</a></td>
+<td>HttpGet（模拟发送） 配合 CloseableHttpResponse（处理返回值）</td>
+<td>解析字符串数据自动拿字符集（接口拿json用它）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="font-face宋体-colororange目录font"><font face="宋体" color=orange>目录</font></h2>
+<ul>
+<li><a class="link" href="#1" >1.第一种代码</a>
+<ul>
+<li><a class="link" href="#1.1" >1.1初始化</a></li>
+<li><a class="link" href="#1.2" >1.2模拟浏览器</a></li>
+</ul>
+</li>
+<li><a class="link" href="#2" >2.第二种代码</a>
+<ul>
+<li><a class="link" href="#2.1" >2.1初始化</a></li>
+<li><a class="link" href="#2.2" >2.2将url绑定到HttpGet里</a></li>
+<li><a class="link" href="#2.3" >2.3向浏览器请求</a></li>
+<li><a class="link" href="#2.4" >2.4拿到请求返回来的结果</a></li>
+<li><a class="link" href="#2.5" >2.5对请求返回的请求体解析</a></li>
+<li><a class="link" href="#2.6" >2.6结尾</a></li>
+</ul>
+</li>
+<li><a class="link" href="#3" >3.json解析器</a></li>
+</ul>
+<h1 id="font-face黑体-colorgreen-id1第一种代码font"><font face="黑体" color=green id="1">第一种代码</font></h1>
+<p><font face="STCAIYUN" color=blue id="1.1">初始化</font></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">InputStream inputStream<span style="color:#f92672">=</span><span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+    <span style="color:#75715e">//这个网站返回的是gbk字符集
+</span><span style="color:#75715e"></span>    String urladdress<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://whois.pconline.com.cn/ipJson.jsp?ip=&#34;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;117.178.141.106&#34;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;&amp;json=true&#34;</span><span style="color:#f92672">;</span>
+    String jsonStr <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span>
+    URL url<span style="color:#f92672">;</span>
+</code></pre></div><p><font face="STCAIYUN" color=blue id="1.2">模拟浏览器</font><br>
+<font face="黑体" color=red>1.用url创建HttpURLConnection对象</font><br>
+<font face="黑体" color=red>2.HttpURLConnection设置头文件属性以及连接属性</font><br>
+<font face="黑体" color=red>3.httpConn.setDoInput(true)设置是浏览器输出数据</font></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#66d9ef">try</span>
+    <span style="color:#f92672">{</span><span style="color:#75715e">// 获取url连接对象
+</span><span style="color:#75715e"></span>        url <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> URL<span style="color:#f92672">(</span>urladdress<span style="color:#f92672">);</span>
+        <span style="color:#75715e">//根据url创建http对象
+</span><span style="color:#75715e"></span>        HttpURLConnection httpConn <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>HttpURLConnection<span style="color:#f92672">)</span> url<span style="color:#f92672">.</span><span style="color:#a6e22e">openConnection</span><span style="color:#f92672">();</span>
+        <span style="color:#75715e">// 设置连接属性
+</span><span style="color:#75715e"></span>        httpConn<span style="color:#f92672">.</span><span style="color:#a6e22e">setConnectTimeout</span><span style="color:#f92672">(</span>3000<span style="color:#f92672">);</span>
+        httpConn<span style="color:#f92672">.</span><span style="color:#a6e22e">setDoInput</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
+        httpConn<span style="color:#f92672">.</span><span style="color:#a6e22e">setRequestMethod</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;GET&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">//設置发出与接收的字符集
+</span><span style="color:#75715e">//        httpConn.setRequestProperty(&#34;Charsert&#34;, &#34;UTF-8&#34;);
+</span></code></pre></div><p><font face="黑体" color=red>4.HttpURLConnection得到返回值（状态码和头文件属性和返回数据）</font></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+
+        <span style="color:#75715e">// 获取相应状态码
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> respCode <span style="color:#f92672">=</span> httpConn<span style="color:#f92672">.</span><span style="color:#a6e22e">getResponseCode</span><span style="color:#f92672">();</span>
+
+        httpConn<span style="color:#f92672">.</span><span style="color:#a6e22e">getContentType</span><span style="color:#f92672">();</span>  <span style="color:#75715e">//返回内容字符集utf-8
+</span><span style="color:#75715e"></span>        httpConn<span style="color:#f92672">.</span><span style="color:#a6e22e">getContentEncoding</span><span style="color:#f92672">();</span><span style="color:#75715e">//返回编码头字符集gzip
+</span><span style="color:#75715e"></span>
+
+        <span style="color:#75715e">//  如果成功发200状态码
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>respCode <span style="color:#f92672">==</span> 200<span style="color:#f92672">)</span>
+        <span style="color:#f92672">{</span>
+             inputStream<span style="color:#f92672">=</span>httpConn<span style="color:#f92672">.</span><span style="color:#a6e22e">getInputStream</span><span style="color:#f92672">();</span>
+</code></pre></div><p><font face="黑体" color=red>4.对流解析这里是接口返回json数据</font></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">            <span style="color:#75715e">// ByteArrayOutputStream相当于内存输出流
+</span><span style="color:#75715e"></span>            ByteArrayOutputStream out <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ByteArrayOutputStream<span style="color:#f92672">();</span>
+            <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> buffer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span>1024<span style="color:#f92672">];</span>
+            <span style="color:#66d9ef">int</span> len <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+            <span style="color:#75715e">// 将输入流转移到内存输出流中
+</span><span style="color:#75715e"></span>
+                <span style="color:#66d9ef">while</span> <span style="color:#f92672">((</span>len <span style="color:#f92672">=</span> inputStream<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>buffer<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> buffer<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">))</span> <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">)</span>
+                <span style="color:#f92672">{</span>
+                    out<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span>buffer<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> len<span style="color:#f92672">);</span>
+                <span style="color:#f92672">}</span>
+                <span style="color:#75715e">// 将内存流转换为字符串&#34;GB2312&#34;是搜狐默认的,而且HttpURLConnection接收数据的时候 字符集默认的是GBK
+</span><span style="color:#75715e"></span>                jsonStr<span style="color:#f92672">=</span>out<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;GB2312&#34;</span><span style="color:#f92672">);</span>
+<span style="color:#75715e">//            new String(out.toByteArray(),&#34;GB2312&#34;);
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>MalformedURLException e<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>IOException e<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div><h1 id="font-face黑体-colorgreen-id2第二种代码font"><font face="黑体" color=green id="2">第二种代码</font></h1>
+<p><font face="STCAIYUN" color=blue id="2.1">初始化</font></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  CloseableHttpClient httpClient<span style="color:#f92672">;</span>
+         String body <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">,</span>status <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">// 1 HttpClients是java包里的，用它创建HttpClinet，相当于打开浏览器
+</span><span style="color:#75715e"></span>        httpClient <span style="color:#f92672">=</span> HttpClients<span style="color:#f92672">.</span><span style="color:#a6e22e">createDefault</span><span style="color:#f92672">();</span>
+        <span style="color:#75715e">//url太平洋ip接口
+</span><span style="color:#75715e"></span>        String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://whois.pconline.com.cn/ipJson.jsp?ip=&#34;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;117.178.141.106&#34;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;&amp;json=true&#34;</span><span style="color:#f92672">;</span>
+</code></pre></div><p><font face="STCAIYUN" color=blue id="2.2">将url绑定到HttpGet里</font><br>
+<font face="黑体" color=red>1.1当无参数的绑定时</font></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">   HttpGet httpGet <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HttpGet<span style="color:#f92672">(</span>url<span style="color:#f92672">);</span>
+</code></pre></div><p><font face="黑体" color=red>1.2当有外界传来的map参数的绑定时<br>
+map.put(&ldquo;ip&rdquo;,ip);<br>
+map.put(&ldquo;json&rdquo;,&ldquo;true&rdquo;);<br>
+这里的String url = &ldquo;<a class="link" href="http://whois.pconline.com.cn/ipJson.jsp%22"  target="_blank" rel="noopener"
+    >http://whois.pconline.com.cn/ipJson.jsp"</a>
+</font></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">        <span style="color:#75715e">// 声明URIBuilder(动态加变量用)
+</span><span style="color:#75715e"></span>        URIBuilder uriBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> URIBuilder<span style="color:#f92672">(</span>url<span style="color:#f92672">);</span>
+
+       <span style="color:#75715e">//参数放map里
+</span><span style="color:#75715e"></span>       Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> map <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+       <span style="color:#75715e">// 判断参数map是否为非空
+</span><span style="color:#75715e"></span>       <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>map <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+           <span style="color:#75715e">// 遍历参数
+</span><span style="color:#75715e"></span>          <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Map<span style="color:#f92672">.</span><span style="color:#a6e22e">Entry</span><span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> entry <span style="color:#f92672">:</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">entrySet</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+              <span style="color:#75715e">// 给url上设置参数
+</span><span style="color:#75715e"></span>               uriBuilder<span style="color:#f92672">.</span><span style="color:#a6e22e">setParameter</span><span style="color:#f92672">(</span>entry<span style="color:#f92672">.</span><span style="color:#a6e22e">getKey</span><span style="color:#f92672">(),</span> entry<span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">());</span>
+          <span style="color:#f92672">}</span>
+      <span style="color:#f92672">}</span>
+
+        <span style="color:#75715e">// 2 创建httpGet对象，相当于设置url请求地址（带参数的）
+</span><span style="color:#75715e"></span>      HttpGet httpGet <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HttpGet<span style="color:#f92672">(</span>uriBuilder<span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">());</span>
+</code></pre></div><p><font face="STCAIYUN" color=blue id="2.3">向浏览器请求</font><br>
+<font face="黑体" color=red>2.CloseableHttpClient绑定HttpGet并向浏览器请求execute</font></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">        <span style="color:#75715e">// 3 使用HttpClient执行httpGet，相当于按回车，发起请求
+</span><span style="color:#75715e"></span>        CloseableHttpResponse response <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            response <span style="color:#f92672">=</span> httpClient<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span>httpGet<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>IOException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            logger<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span>e<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;浏览器请求错误&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+</code></pre></div><p><font face="STCAIYUN" color=blue id="2.4">拿到请求返回来的结果</font><br>
+<font face="黑体" color=red>3.这里可以拿返回来的头文件<br>
+eg：返回来的字符集是什么<br>
+注意这里是还要用正则表达式解析数据（没写）</font></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// todo:拿状态码（用正则）
+</span><span style="color:#75715e"></span>        Header<span style="color:#f92672">[]</span> headers<span style="color:#f92672">=</span> response<span style="color:#f92672">.</span><span style="color:#a6e22e">getHeaders</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;content-type&#34;</span><span style="color:#f92672">);</span><span style="color:#75715e">//拿头文件字符集（包状态码）
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Header header <span style="color:#f92672">:</span> headers<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            header<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">();</span>               <span style="color:#75715e">//拿key ：content-type
+</span><span style="color:#75715e"></span>            header<span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">();</span>              <span style="color:#75715e">//拿值text/html; charset=GBK
+</span><span style="color:#75715e"></span>            logger<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span>header<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">());</span> <span style="color:#75715e">//拿全部Content-Type: text/html; charset=GBK
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
+</code></pre></div><p><font face="STCAIYUN" color=blue id="2.5">对请求返回的请求体解析<br>
+注意CloseableHttpResponse.getEntity()只能用一次</font><br>
+<font face="黑体" color=red>3.1这一部分是对返回的结果是字符串形式的写法</font></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//对返回数据解析
+</span><span style="color:#75715e"></span> <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>response<span style="color:#f92672">.</span><span style="color:#a6e22e">getEntity</span><span style="color:#f92672">()</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#75715e">//拿状态码
+</span><span style="color:#75715e"></span>            status<span style="color:#f92672">=</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">valueOf</span><span style="color:#f92672">(</span>response<span style="color:#f92672">.</span><span style="color:#a6e22e">getStatusLine</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getStatusCode</span><span style="color:#f92672">());</span>
+
+<span style="color:#75715e">//请求体CloseableHttpResponse.getEntity()不能调用多次，只能调用获取一次
+</span><span style="color:#75715e">//这种是自动获取发的字符集在解码成字符串，如果没有获取到，在以后面的字符集解码（UTF-8与gbk都行）
+</span><span style="color:#75715e"></span>            body<span style="color:#f92672">=</span>EntityUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>response<span style="color:#f92672">.</span><span style="color:#a6e22e">getEntity</span><span style="color:#f92672">(),</span><span style="color:#e6db74">&#34;gbk&#34;</span><span style="color:#f92672">);</span><span style="color:#75715e">//body是String
+</span><span style="color:#75715e"></span>
+
+</code></pre></div><p><font face="黑体" color=red>3.2这一部分是对返回的结果是其它文件，用2进制方式（没写）或者用流读取文件</font></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">InputToString inputToString <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> InputToString<span style="color:#f92672">();</span><span style="color:#75715e">//工具类
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>response<span style="color:#f92672">.</span><span style="color:#a6e22e">getEntity</span><span style="color:#f92672">()</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#75715e">//拿状态码
+</span><span style="color:#75715e"></span>            status<span style="color:#f92672">=</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">valueOf</span><span style="color:#f92672">(</span>response<span style="color:#f92672">.</span><span style="color:#a6e22e">getStatusLine</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getStatusCode</span><span style="color:#f92672">());</span>
+	<span style="color:#75715e">//以字节方式读传来的数据
+</span><span style="color:#75715e"></span>       <span style="color:#75715e">// byte[] bytes =   EntityUtils.toByteArray(response.getEntity());
+</span><span style="color:#75715e">//这种方式是以流方式拿数据，所以用gbk解码，因为发来的数据是gbk的
+</span><span style="color:#75715e"></span>          InputStream in <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span><span style="color:#a6e22e">getEntity</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getContent</span><span style="color:#f92672">();</span>
+          body<span style="color:#f92672">=</span>inputToString<span style="color:#f92672">.</span><span style="color:#a6e22e">InToString</span><span style="color:#f92672">(</span>in<span style="color:#f92672">);</span>
+</code></pre></div><p><font face="黑体" color=green>工具类代码</font></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.xiao.demo.util<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.io.ByteArrayOutputStream<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.io.IOException<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.io.InputStream<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span>  <span style="color:#a6e22e">InputToString</span><span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">InToString</span><span style="color:#f92672">(</span>InputStream inputStream<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+        String jsonStr<span style="color:#f92672">;</span>
+        <span style="color:#75715e">// ByteArrayOutputStream相当于内存输出流
+</span><span style="color:#75715e"></span>        ByteArrayOutputStream out <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ByteArrayOutputStream<span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> buffer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span>1024<span style="color:#f92672">];</span>
+        <span style="color:#66d9ef">int</span> len <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#75715e">// 将输入流转移到内存输出流中
+</span><span style="color:#75715e"></span>
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">((</span>len <span style="color:#f92672">=</span> inputStream<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>buffer<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> buffer<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">))</span> <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            out<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span>buffer<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> len<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#75715e">// 将内存流转换为字符串&#34;GB2312&#34;是搜狐默认的,而且HttpURLConnection接收数据的时候 字符集默认的是GBK
+</span><span style="color:#75715e"></span>        jsonStr <span style="color:#f92672">=</span> out<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;GB2312&#34;</span><span style="color:#f92672">);</span>
+
+        out<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+        inputStream<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+
+        <span style="color:#66d9ef">return</span> jsonStr<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+
+</code></pre></div><p><font face="STCAIYUN" color=blue id="2.6">结尾</font></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            <span style="color:#75715e">//状态码
+</span><span style="color:#75715e"></span>            status<span style="color:#f92672">=</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">valueOf</span><span style="color:#f92672">(</span>response<span style="color:#f92672">.</span><span style="color:#a6e22e">getStatusLine</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getStatusCode</span><span style="color:#f92672">());</span>
+        <span style="color:#f92672">}</span>
+ <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>IOException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+     e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+ <span style="color:#f92672">}</span>
+ logger<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;请求体：&#34;</span><span style="color:#f92672">+</span>body<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;--状态码：&#34;</span><span style="color:#f92672">+</span>status<span style="color:#f92672">);</span>
+</code></pre></div><p><font face="黑体" color=green id="3">json解析器</font></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//字符串是这样的{&#34;地址&#34;:&#34;内容&#34;}
+</span><span style="color:#75715e"></span>JSONObject jsonObject <span style="color:#f92672">=</span> JSONObject<span style="color:#f92672">.</span><span style="color:#a6e22e">parseObject</span><span style="color:#f92672">(</span>String类型<span style="color:#f92672">);</span>
+<span style="color:#75715e">//取出地址对应内容	
+</span><span style="color:#75715e"></span> String pro <span style="color:#f92672">=</span> jsonObject<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;地址&#34;</span><span style="color:#f92672">);</span>
+</code></pre></div><style>
+    .arrow{
+        border: 9px solid transparent;
+        border-bottom-color: #3DA0DB;
+        width: 0px;
+        height: 0px;
+        top:0px}
+    .stick{
+        width: 8px;
+        height: 14px;
+        border-radius: 1px;
+        background-color: #3DA0DB;
+        top:15px;}
+    #back_top div{
+        position: absolute;
+        margin: auto;
+        right: 0px;
+        left: 0px;}
+    #back_top{
+        background-color: #dddddd;
+        height: 38px;
+        width: 38px;
+        border-radius: 3px;
+        display: block;
+        cursor: pointer;
+        position: fixed;
+        right: 50px;
+        bottom: 100px;
+        display: none;}
+</style>
+<div id="article"></div>
+<div id="back_top">
+<div class="arrow"></div>
+<div class="stick"></div>
+</div>
+<script src="http://cdn.staticfile.org/jquery/1.11.1-rc2/jquery.min.js"></script>
+<script>
+$(function(){
+$(window).scroll(function(){  //只要窗口滚动,就触发下面代码
+var scrollt = document.documentElement.scrollTop + document.body.scrollTop; //获取滚动后的高度
+if( scrollt >200 ){  //判断滚动后高度超过200px,就显示
+$("#back_top").fadeIn(400); //淡入
+}else{
+$("#back_top").stop().fadeOut(400); //如果返回或者没有超过,就淡出.必须加上stop()停止之前动画,否则会出现闪动
+}});
+$("#back_top").click(function(){ //当点击标签的时候,使用animate在200毫秒的时间内,滚到顶部
+$("html,body").animate({scrollTop:"0px"},200);
+ }); 
+});
+</script>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+     
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 示例站点
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.5.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#font-face宋体-colorbrown前言font"><font face="宋体" color=brown>前言</font></a></li>
+    <li><a href="#font-face宋体-colororange目录font"><font face="宋体" color=orange>目录</font></a></li>
+  </ul>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

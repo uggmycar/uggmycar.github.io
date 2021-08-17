@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='git登入与qq登入'><title>第三方登入</title>
+
+<link rel='canonical' href='https://uggmycar.github.io/p/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%85%A5/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='第三方登入'>
+<meta property='og:description' content='git登入与qq登入'>
+<meta property='og:url' content='https://uggmycar.github.io/p/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%85%A5/'>
+<meta property='og:site_name' content='示例站点'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-08-10T10:20:15&#43;08:00'/><meta property='article:modified_time' content='2021-08-10T10:20:15&#43;08:00'/><meta property='og:image' content='https://uggmycar.github.io/p/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%85%A5/a.jpg' />
+<meta name="twitter:site" content="@棉花糖">
+    <meta name="twitter:creator" content="@棉花糖"><meta name="twitter:title" content="第三方登入">
+<meta name="twitter:description" content="git登入与qq登入"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://uggmycar.github.io/p/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%85%A5/a.jpg' />
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="https://uggmycar.github.io/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%85%A5/">
+                <img src="/p/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%85%A5/a_hu6dc535cdf07cfe4d3dfb180fa244a829_1023782_800x0_resize_q75_box.jpg"
+                        srcset="/p/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%85%A5/a_hu6dc535cdf07cfe4d3dfb180fa244a829_1023782_800x0_resize_q75_box.jpg 800w, /p/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%85%A5/a_hu6dc535cdf07cfe4d3dfb180fa244a829_1023782_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="1250" 
+                        loading="lazy"
+                        alt="Featured image of post 第三方登入" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/p/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%85%A5/">第三方登入</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        git登入与qq登入
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 10, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    5 min read
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="引入第三方登入">引入第三方登入</h2>
+<blockquote>
+<p>1：在第三方应用处申请Client ID和Client secrets
+2：回调函数拿code<br>
+3：根据code拿令牌<br>
+4：根据令牌拿用户数据</p>
+</blockquote>
+<h2 id="git登入">git登入</h2>
+<h3 id="在git申请">在git申请</h3>
+<p><font face="黑体" color=blue>1.在git的Settings的Developer settings里创建一个应用申请</font><br>
+<img src="1.png"  height="600" width="600" ><br>
+<font face="黑体" color=blue>2.网站用OAuth Apps</font><br>
+<img src="2.png"  height="600" width="600"  ><br>
+<font face="黑体" color=blue>3.注意这里的主页地址是要已经在网上发布的地址（如果是本地测试可以用GitHub Apps一样填法）</font><br>
+<img src="3.png"  height="600" width="600"  ><br>
+<font face="黑体" color=blue>4.申请好后，在这里可以看自己的Client ID和Client secrets</font><br>
+<img src="4.png"  height="600" width="600"  ></p>
+<h3 id="springboot里使用">SpringBoot里使用</h3>
+<p><font face="黑体" color=red>1.先要向git发起请求，git收到请求发送code到指定的回调函数里</font><br>
+<font face="黑体" color=red>2.然后带code发起get请求，向git拿令牌</font><br>
+<font face="黑体" color=red>3.拿令牌向git发起get请求（这里最新是将token令牌放到头文件【Authorization:token 令牌】里发送，有空格这里），拿用户信息</font></p>
+<p><font face="黑体" color=green>控制层代码</font></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Controller</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GitController</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">index</span><span style="color:#f92672">(){</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;index&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/login&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">login</span><span style="color:#f92672">(</span>Model model<span style="color:#f92672">){</span>
+        model<span style="color:#f92672">.</span><span style="color:#a6e22e">addAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;success&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;成功登入&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;login&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/gitlogin&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">Gitlogin</span><span style="color:#f92672">(</span>HttpSession session<span style="color:#f92672">){</span>
+<span style="color:#75715e">//随机uuid,用于第三方应用防止CSRF攻击
+</span><span style="color:#75715e"></span>    String uuid<span style="color:#f92672">=</span> UUID<span style="color:#f92672">.</span><span style="color:#a6e22e">randomUUID</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">().</span><span style="color:#a6e22e">replaceAll</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;-&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">);</span>
+    session<span style="color:#f92672">.</span><span style="color:#a6e22e">setAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;state&#34;</span><span style="color:#f92672">,</span>uuid<span style="color:#f92672">);</span>
+<span style="color:#75715e">//向git请求code
+</span><span style="color:#75715e"></span>        String gitlogin<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://github.com/login/oauth/authorize?&#34;</span><span style="color:#f92672">;</span>		<span style="color:#75715e">//固定的
+</span><span style="color:#75715e"></span>        String client_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;client_id=&#34;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;填自己的Client ID&#34;</span><span style="color:#f92672">;</span>			<span style="color:#75715e">//自己修改
+</span><span style="color:#75715e"></span>        String callback<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;填自己的回调地址&#34;</span><span style="color:#f92672">;</span>				<span style="color:#75715e">//自己修改
+</span><span style="color:#75715e"></span>        String redirect<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&amp;redirect_uri=&#34;</span><span style="color:#f92672">+</span> URLEncoder<span style="color:#f92672">.</span><span style="color:#a6e22e">encode</span><span style="color:#f92672">(</span>callback<span style="color:#f92672">);</span>		<span style="color:#75715e">//将回调地址转换怕有中文
+</span><span style="color:#75715e"></span>
+        String url<span style="color:#f92672">=</span>gitlogin<span style="color:#f92672">+</span>client_id<span style="color:#f92672">+</span>redirect<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;&amp;state=&#34;</span><span style="color:#f92672">+</span>uuid<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;redirect:&#34;</span> <span style="color:#f92672">+</span> url<span style="color:#f92672">;</span>						<span style="color:#75715e">//服务器发请求
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@RequestMapping</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/callback&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">callback</span><span style="color:#f92672">(</span>String code<span style="color:#f92672">,</span> <span style="color:#75715e">//服务器带个code
+</span><span style="color:#75715e"></span>                           String state<span style="color:#f92672">,</span> Model model<span style="color:#f92672">,</span>
+                           HttpServletResponse response
+                           <span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+
+        String client_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;填自己的Client ID&#34;</span><span style="color:#f92672">;</span>			<span style="color:#75715e">//自己修改
+</span><span style="color:#75715e"></span>        String key<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;填自己的Client secrets&#34;</span><span style="color:#f92672">;</span>  			<span style="color:#75715e">//自己修改
+</span><span style="color:#75715e"></span>        String callback<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://127.0.0.1:8080/callback&#34;</span><span style="color:#f92672">;</span>		<span style="color:#75715e">//自己修改（填自己的回调地址）
+</span><span style="color:#75715e"></span>        String codeurl<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://github.com/login/oauth/access_token?client_id=&#34;</span><span style="color:#f92672">;</span>	<span style="color:#75715e">//固定的
+</span><span style="color:#75715e"></span>        String token<span style="color:#f92672">;</span>
+        String userinfo_url<span style="color:#f92672">;</span>
+        Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> responseMap<span style="color:#f92672">;</span>
+        String responseStr<span style="color:#f92672">;</span>
+        
+
+String setcode<span style="color:#f92672">=</span>codeurl<span style="color:#f92672">+</span>client_id<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;&amp;client_secret=&#34;</span><span style="color:#f92672">+</span>key<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;&amp;code=CODE&amp;redirect_uri=&#34;</span><span style="color:#f92672">+</span>callback<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span>
+
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(!</span>StringUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">(</span>code<span style="color:#f92672">)&amp;&amp;!</span>StringUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">(</span>state<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+           <span style="color:#75715e">//将传来的code设置上
+</span><span style="color:#75715e"></span>            String token_url <span style="color:#f92672">=</span> setcode<span style="color:#f92672">.</span><span style="color:#a6e22e">replace</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;CODE&#34;</span><span style="color:#f92672">,</span> code<span style="color:#f92672">);</span>		<span style="color:#75715e">//设置带code的url去请求令牌token
+</span><span style="color:#75715e"></span>
+            <span style="color:#75715e">//去git那请求令牌
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">//拿code去请求令牌
+</span><span style="color:#75715e"></span>            responseStr<span style="color:#f92672">=</span> HttpClientUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">doGet</span><span style="color:#f92672">(</span>token_url<span style="color:#f92672">);</span>
+   
+<span style="color:#75715e">//解析拿到的代码取出token令牌
+</span><span style="color:#75715e"></span>            Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;();</span>
+            <span style="color:#75715e">// 以&amp;来解析字符串
+</span><span style="color:#75715e"></span>            String<span style="color:#f92672">[]</span> result <span style="color:#f92672">=</span> responseStr<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;\\&amp;&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String str <span style="color:#f92672">:</span> result<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#75715e">// 以=来解析字符串
+</span><span style="color:#75715e"></span>                String<span style="color:#f92672">[]</span> split <span style="color:#f92672">=</span> str<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;=&#34;</span><span style="color:#f92672">);</span>
+                <span style="color:#75715e">// 将字符串存入map中
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>split<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>split<span style="color:#f92672">[</span>0<span style="color:#f92672">],</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+                <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                    map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>split<span style="color:#f92672">[</span>0<span style="color:#f92672">],</span> split<span style="color:#f92672">[</span>1<span style="color:#f92672">]);</span>
+                <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+
+            token <span style="color:#f92672">=</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;access_token&#34;</span><span style="color:#f92672">);</span>			<span style="color:#75715e">//拿到token令牌
+</span><span style="color:#75715e"></span>
+            <span style="color:#75715e">//根据token发送请求获取登录人的信息  ，通过令牌去获得用户信息
+</span><span style="color:#75715e"></span>            userinfo_url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://api.github.com/user&#34;</span><span style="color:#f92672">;</span>		<span style="color:#75715e">//固定url
+</span><span style="color:#75715e"></span>
+            <span style="color:#75715e">//根据令牌向git发起请求拿其用户信息（用HttpClientUtils.doGet2处理后面有）
+</span><span style="color:#75715e"></span>            responseStr<span style="color:#f92672">=</span> HttpClientUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">doGet2</span><span style="color:#f92672">(</span>userinfo_url<span style="color:#f92672">,</span>token<span style="color:#f92672">);</span><span style="color:#75715e">//json存储的用户信息
+</span><span style="color:#75715e"></span>
+            <span style="color:#75715e">//用户信息转为map（含有用户信息）
+</span><span style="color:#75715e"></span>            responseMap <span style="color:#f92672">=</span> HttpClientUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">getMapByJson</span><span style="color:#f92672">(</span>responseStr<span style="color:#f92672">);</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>responseMap<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;node_id&#34;</span><span style="color:#f92672">));</span><span style="color:#75715e">//node_id,用来唯一标识用户
+</span><span style="color:#75715e"></span><span style="color:#75715e">/***
+</span><span style="color:#75715e">//这些通过responseMap.get能取到git其它信息
+</span><span style="color:#75715e">node_id		用来唯一标识用户
+</span><span style="color:#75715e">avatar_url		github头像URL
+</span><span style="color:#75715e">created_at	最后更新github时间
+</span><span style="color:#75715e">login		github名
+</span><span style="color:#75715e">html_url		用户首页
+</span><span style="color:#75715e">node_id		账号唯一标识
+</span><span style="color:#75715e">public_repos	公有仓库数量
+</span><span style="color:#75715e">login		账号名
+</span><span style="color:#75715e">subscriptions_url	仓库详细信息
+</span><span style="color:#75715e">updated_at	最后更新github时间
+</span><span style="color:#75715e">id		github账号id
+</span><span style="color:#75715e">received_events_url	操作详细信息url
+</span><span style="color:#75715e">**/</span>
+received_events_url
+                      <span style="color:#75715e">//成功就显示
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;redirect:/login&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+        <span style="color:#75715e">//失败回首页
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;redirect:/index&#34;</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+
+
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p><font face="黑体" color=green> HttpClientUtils.doGet2和getMapByJson代码</font></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.xiao.demo.util<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.alibaba.fastjson.JSONObject<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.apache.http.HttpEntity<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.apache.http.client.methods.CloseableHttpResponse<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.apache.http.client.methods.HttpGet<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.apache.http.impl.client.CloseableHttpClient<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.apache.http.impl.client.HttpClients<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.apache.http.util.EntityUtils<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.util.HashMap<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.Map<span style="color:#f92672">;</span>
+
+<span style="color:#75715e">/**
+</span><span style="color:#75715e"> * @author : xsh
+</span><span style="color:#75715e"> * @create : 2020-03-10 - 15:07
+</span><span style="color:#75715e"> * @describe: 第三方登陆工具类
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HttpClientUtils</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 发送get请求，利用java代码发送请求
+</span><span style="color:#75715e">     * @param url
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     * @throws Exception
+</span><span style="color:#75715e">     */</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 发送get请求，利用java代码发送请求
+</span><span style="color:#75715e">     * @param url
+</span><span style="color:#75715e">     * @return更新了只能将token放头文件里
+</span><span style="color:#75715e">     * @throws Exception
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> String <span style="color:#a6e22e">doGet2</span><span style="color:#f92672">(</span>String url<span style="color:#f92672">,</span>String Token<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception<span style="color:#f92672">{</span>
+
+        CloseableHttpClient httpclient <span style="color:#f92672">=</span> HttpClients<span style="color:#f92672">.</span><span style="color:#a6e22e">createDefault</span><span style="color:#f92672">();</span>
+
+        HttpGet httpGet <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HttpGet<span style="color:#f92672">(</span>url<span style="color:#f92672">);</span>
+        httpGet<span style="color:#f92672">.</span><span style="color:#a6e22e">addHeader</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Authorization&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;token &#34;</span><span style="color:#f92672">+</span>Token<span style="color:#f92672">);</span>
+        <span style="color:#75715e">// 发送了一个http请求
+</span><span style="color:#75715e"></span>        CloseableHttpResponse response <span style="color:#f92672">=</span> httpclient<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span>httpGet<span style="color:#f92672">);</span>
+        <span style="color:#75715e">// 如果响应200成功,解析响应结果
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>response<span style="color:#f92672">.</span><span style="color:#a6e22e">getStatusLine</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getStatusCode</span><span style="color:#f92672">()==</span>200<span style="color:#f92672">){</span>
+            <span style="color:#75715e">// 获取响应的内容
+</span><span style="color:#75715e"></span>            HttpEntity responseEntity <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span><span style="color:#a6e22e">getEntity</span><span style="color:#f92672">();</span>
+
+            <span style="color:#66d9ef">return</span> EntityUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>responseEntity<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 将字符串转换成map
+</span><span style="color:#75715e">     * @param responseEntity
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getMap</span><span style="color:#f92672">(</span>String responseEntity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+        Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;();</span>
+        <span style="color:#75715e">// 以&amp;来解析字符串
+</span><span style="color:#75715e"></span>        String<span style="color:#f92672">[]</span> result <span style="color:#f92672">=</span> responseEntity<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;\\&amp;&#34;</span><span style="color:#f92672">);</span>
+
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String str <span style="color:#f92672">:</span> result<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#75715e">// 以=来解析字符串
+</span><span style="color:#75715e"></span>            String<span style="color:#f92672">[]</span> split <span style="color:#f92672">=</span> str<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;=&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#75715e">// 将字符串存入map中
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>split<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>split<span style="color:#f92672">[</span>0<span style="color:#f92672">],</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>split<span style="color:#f92672">[</span>0<span style="color:#f92672">],</span> split<span style="color:#f92672">[</span>1<span style="color:#f92672">]);</span>
+            <span style="color:#f92672">}</span>
+
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> map<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 通过json获得map
+</span><span style="color:#75715e">     * @param responseEntity
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getMapByJson</span><span style="color:#f92672">(</span>String responseEntity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;();</span>
+        <span style="color:#75715e">// 阿里巴巴fastjson  将json转换成map
+</span><span style="color:#75715e"></span>        JSONObject jsonObject <span style="color:#f92672">=</span> JSONObject<span style="color:#f92672">.</span><span style="color:#a6e22e">parseObject</span><span style="color:#f92672">(</span>responseEntity<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Map<span style="color:#f92672">.</span><span style="color:#a6e22e">Entry</span><span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> entry <span style="color:#f92672">:</span> jsonObject<span style="color:#f92672">.</span><span style="color:#a6e22e">entrySet</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            String key <span style="color:#f92672">=</span> entry<span style="color:#f92672">.</span><span style="color:#a6e22e">getKey</span><span style="color:#f92672">();</span>
+            <span style="color:#75715e">// 将obj转换成string
+</span><span style="color:#75715e"></span>            String value <span style="color:#f92672">=</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">valueOf</span><span style="color:#f92672">(</span>entry<span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">())</span> <span style="color:#f92672">;</span>
+            map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>key<span style="color:#f92672">,</span> value<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> map<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="qq登入">qq登入</h2>
+<h3 id="在qq申请">在qq申请</h3>
+<p><font face="黑体" color=blue>在这个网站申请qq登入：</font>
+<a class="link" href="https://connect.qq.com/index.html"  target="_blank" rel="noopener"
+    >https://connect.qq.com/index.html</a><br>
+<font face="黑体" color=blue>可参考这个</font>
+<a class="link" href="https://blog.csdn.net/qq_25615395/article/details/80251094"  target="_blank" rel="noopener"
+    >https://blog.csdn.net/qq_25615395/article/details/80251094</a><br>
+<font face="黑体" color=blue>完善资料后申请app ID和app key</font></p>
+<h3 id="在springboot里使用">在springboot里使用</h3>
+<p><font face="黑体" color=red>1.先要向qq发起请求，qq收到请求发送code到指定的回调函数里</font><br>
+<font face="黑体" color=red>2.拿code向qq申请token</font><br>
+<font face="黑体" color=red>3.拿到token向qq申请(申请时要填写自己上传的回调函数)对应用户的openid（多一步）</font> <br>
+<font face="黑体" color=red>4.通过openid和token向qq拿用户信息    openid&ndash;（用来唯一标识qq用户）</font></p>
+<p><font face="黑体" color=green>qq控制层代码</font></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Controller</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">QQController</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/qqlogin&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">qqlogin</span><span style="color:#f92672">(</span>HttpSession session<span style="color:#f92672">){</span>
+
+        
+        String backUrl <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;自己申请的回调地址&#34;</span><span style="color:#f92672">;</span>			<span style="color:#75715e">//QQ互联中的回调地址
+</span><span style="color:#75715e"></span>        String app_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&amp;client_id=&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;自己的app_id&#34;</span><span style="color:#f92672">;</span>		<span style="color:#75715e">//自己的appid
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//用于第三方应用防止CSRF攻击	
+</span><span style="color:#75715e"></span>        String uuid <span style="color:#f92672">=</span> UUID<span style="color:#f92672">.</span><span style="color:#a6e22e">randomUUID</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">().</span><span style="color:#a6e22e">replaceAll</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;-&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">);</span>
+        session<span style="color:#f92672">.</span><span style="color:#a6e22e">setAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;state&#34;</span><span style="color:#f92672">,</span>uuid<span style="color:#f92672">);</span>
+
+        <span style="color:#75715e">//Step1：获取Authorization Code
+</span><span style="color:#75715e"></span>        String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://graph.qq.com/oauth2.0/authorize?response_type=code&#34;</span><span style="color:#f92672">+</span>	<span style="color:#75715e">//固定的
+</span><span style="color:#75715e"></span>                 app_id<span style="color:#f92672">+</span>								<span style="color:#75715e">//自己的appid
+</span><span style="color:#75715e"></span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;&amp;redirect_uri=&#34;</span> <span style="color:#f92672">+</span> URLEncoder<span style="color:#f92672">.</span><span style="color:#a6e22e">encode</span><span style="color:#f92672">(</span>backUrl<span style="color:#f92672">)</span> <span style="color:#f92672">+</span>				<span style="color:#75715e">//回调地址
+</span><span style="color:#75715e"></span>                <span style="color:#e6db74">&#34;&amp;state=&#34;</span> <span style="color:#f92672">+</span> uuid<span style="color:#f92672">;</span>							
+
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;redirect:&#34;</span> <span style="color:#f92672">+</span> url<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+       <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * QQ回调
+</span><span style="color:#75715e">     * @param request
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/qq/callback&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">qqcallback</span><span style="color:#f92672">(</span>HttpServletRequest request<span style="color:#f92672">,</span> HttpServletResponse response<span style="color:#f92672">,</span>String code<span style="color:#75715e">//服务器带的code
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        HttpSession session <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span><span style="color:#a6e22e">getSession</span><span style="color:#f92672">();</span>
+        String uuid <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>String<span style="color:#f92672">)</span> session<span style="color:#f92672">.</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;state&#34;</span><span style="color:#f92672">);</span>
+
+        String http<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://xxxx.com&#34;</span><span style="color:#f92672">;</span>                    	<span style="color:#75715e">//自己的网站（上传时填写的）
+</span><span style="color:#75715e"></span>        String APPID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xxxxxxxxx&#34;</span><span style="color:#f92672">;</span>                              <span style="color:#75715e">//自己的appid
+</span><span style="color:#75715e"></span>        String APPKEY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;XXXXXXXX&#34;</span><span style="color:#f92672">;</span>                         	<span style="color:#75715e">//自己的appkey
+</span><span style="color:#75715e"></span>        String backUrl <span style="color:#f92672">=</span> http <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/qq/callback&#34;</span><span style="color:#f92672">;</span>         	<span style="color:#75715e">//上传时填写的回调地址
+</span><span style="color:#75715e"></span>
+        String state <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span><span style="color:#a6e22e">getParameter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;state&#34;</span><span style="color:#f92672">);</span>       <span style="color:#75715e">//自定义验证码
+</span><span style="color:#75715e"></span>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>uuid <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(!</span>uuid<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>state<span style="color:#f92672">)){</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;QQ,state错误&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#75715e">//Step2：通过Authorization Code获取Access Token令牌
+</span><span style="color:#75715e"></span>
+        String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&#34;</span><span style="color:#f92672">+</span>	
+                <span style="color:#e6db74">&#34;&amp;client_id=&#34;</span> <span style="color:#f92672">+</span> APPID <span style="color:#f92672">+</span>
+                <span style="color:#e6db74">&#34;&amp;client_secret=&#34;</span> <span style="color:#f92672">+</span> APPKEY  <span style="color:#f92672">+</span>
+                <span style="color:#e6db74">&#34;&amp;code=&#34;</span> <span style="color:#f92672">+</span> code <span style="color:#f92672">+</span>
+                <span style="color:#e6db74">&#34;&amp;redirect_uri=&#34;</span> <span style="color:#f92672">+</span> backUrl<span style="color:#f92672">;</span>
+<span style="color:#75715e">//拿到token
+</span><span style="color:#75715e"></span>        String access_token <span style="color:#f92672">=</span> QQHttpClient<span style="color:#f92672">.</span><span style="color:#a6e22e">getAccessToken</span><span style="color:#f92672">(</span>url<span style="color:#f92672">);</span>
+
+        <span style="color:#75715e">//Step3: 获取回调后的 openid (用来唯一标识qq用户)值
+</span><span style="color:#75715e"></span>        url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://graph.qq.com/oauth2.0/me?access_token=&#34;</span> <span style="color:#f92672">+</span> access_token<span style="color:#f92672">;</span>
+
+        <span style="color:#75715e">//用令牌去拿用户id
+</span><span style="color:#75715e"></span>        String openid <span style="color:#f92672">=</span> QQHttpClient<span style="color:#f92672">.</span><span style="color:#a6e22e">getOpenID</span><span style="color:#f92672">(</span>url<span style="color:#f92672">);</span>
+
+        <span style="color:#75715e">//Step4：获取QQ用户信息
+</span><span style="color:#75715e"></span>        url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://graph.qq.com/user/get_user_info?access_token=&#34;</span> <span style="color:#f92672">+</span> access_token <span style="color:#f92672">+</span>
+                <span style="color:#e6db74">&#34;&amp;oauth_consumer_key=&#34;</span><span style="color:#f92672">+</span>APPID <span style="color:#f92672">+</span>
+                <span style="color:#e6db74">&#34;&amp;openid=&#34;</span> <span style="color:#f92672">+</span> openid<span style="color:#f92672">;</span>
+
+        <span style="color:#75715e">//通过令牌拿到用户信息
+</span><span style="color:#75715e"></span>        JSONObject jsonObject <span style="color:#f92672">=</span> QQHttpClient<span style="color:#f92672">.</span><span style="color:#a6e22e">getUserInfo</span><span style="color:#f92672">(</span>url<span style="color:#f92672">);</span>
+        <span style="color:#75715e">//也可以放到Redis和mysql中
+</span><span style="color:#75715e"></span>                                                                    <span style="color:#75715e">//openid,用来唯一标识qq用户
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//removeNonBmpUnicode((String)jsonObject.get(&#34;nickname&#34;));    //QQ名，去除网名中的特殊表情
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//(String)jsonObject.get(&#34;figureurl_qq&#34;);                     //QQ头像URL
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//(String)jsonObject.get(&#34;gender&#34;);                           //性别
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//(String)jsonObject.get(&#34;year&#34;);                             //年龄
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//(String)jsonObject.get(&#34;province&#34;);                         //省
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//(String)jsonObject.get(&#34;city&#34;);                             //城市
+</span><span style="color:#75715e"></span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span><span style="color:#75715e">//成功就登入它
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+ <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 处理掉QQ网名中的特殊表情
+</span><span style="color:#75715e">     * @param str
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">removeNonBmpUnicode</span><span style="color:#f92672">(</span>String str<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>str <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        str <span style="color:#f92672">=</span> str<span style="color:#f92672">.</span><span style="color:#a6e22e">replaceAll</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;[^\\u0000-\\uFFFF]&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>str<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+            str <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;(* _ *)&#34;</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> str<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><font face="黑体" color=green>QQHttpClient</font></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.xiao.demo.util<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.alibaba.fastjson.JSONObject<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.apache.http.HttpEntity<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.apache.http.HttpResponse<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.apache.http.client.methods.HttpGet<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.apache.http.impl.client.CloseableHttpClient<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.apache.http.impl.client.HttpClients<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.apache.http.util.EntityUtils<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.io.IOException<span style="color:#f92672">;</span>
+
+<span style="color:#75715e">/**
+</span><span style="color:#75715e"> * @author xsh
+</span><span style="color:#75715e"> * @create 2020-03-02 20:32
+</span><span style="color:#75715e"> * QQ工具类（主要用于解析QQ返回的信息）
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">QQHttpClient</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> JSONObject <span style="color:#a6e22e">parseJSONP</span><span style="color:#f92672">(</span>String jsonp<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">int</span> startIndex <span style="color:#f92672">=</span> jsonp<span style="color:#f92672">.</span><span style="color:#a6e22e">indexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;(&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">int</span> endIndex <span style="color:#f92672">=</span> jsonp<span style="color:#f92672">.</span><span style="color:#a6e22e">lastIndexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;)&#34;</span><span style="color:#f92672">);</span>
+
+        String json <span style="color:#f92672">=</span> jsonp<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>startIndex <span style="color:#f92672">+</span> 1<span style="color:#f92672">,</span>endIndex<span style="color:#f92672">);</span>
+
+        <span style="color:#66d9ef">return</span> JSONObject<span style="color:#f92672">.</span><span style="color:#a6e22e">parseObject</span><span style="color:#f92672">(</span>json<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#75715e">//qq返回信息：access_token=FE04************************CCE2&amp;expires_in=7776000&amp;refresh_token=88E4************************BE14
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> String <span style="color:#a6e22e">getAccessToken</span><span style="color:#f92672">(</span>String url<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+        CloseableHttpClient client <span style="color:#f92672">=</span> HttpClients<span style="color:#f92672">.</span><span style="color:#a6e22e">createDefault</span><span style="color:#f92672">();</span>
+        String token <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+
+        HttpGet httpGet <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HttpGet<span style="color:#f92672">(</span>url<span style="color:#f92672">);</span>
+        HttpResponse response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span>httpGet<span style="color:#f92672">);</span>
+        HttpEntity entity <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span><span style="color:#a6e22e">getEntity</span><span style="color:#f92672">();</span>
+
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>entity <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+            String result <span style="color:#f92672">=</span> EntityUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>entity<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>result<span style="color:#f92672">.</span><span style="color:#a6e22e">indexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;access_token&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">&gt;=</span> 0<span style="color:#f92672">){</span>
+                String<span style="color:#f92672">[]</span> array <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&amp;&#34;</span><span style="color:#f92672">);</span>
+                <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String str <span style="color:#f92672">:</span> array<span style="color:#f92672">){</span>
+                    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>str<span style="color:#f92672">.</span><span style="color:#a6e22e">indexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;access_token&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">&gt;=</span> 0<span style="color:#f92672">){</span>
+                        token <span style="color:#f92672">=</span> str<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>str<span style="color:#f92672">.</span><span style="color:#a6e22e">indexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;=&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">);</span>
+                        <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+                    <span style="color:#f92672">}</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+
+        httpGet<span style="color:#f92672">.</span><span style="color:#a6e22e">releaseConnection</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">return</span> token<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#75715e">//qq返回信息：callback( {&#34;client_id&#34;:&#34;YOUR_APPID&#34;,&#34;openid&#34;:&#34;YOUR_OPENID&#34;} ); 需要用到上面自己定义的解析方法parseJSONP
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> String <span style="color:#a6e22e">getOpenID</span><span style="color:#f92672">(</span>String url<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+        JSONObject jsonObject <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        CloseableHttpClient client <span style="color:#f92672">=</span> HttpClients<span style="color:#f92672">.</span><span style="color:#a6e22e">createDefault</span><span style="color:#f92672">();</span>
+
+        HttpGet httpGet <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HttpGet<span style="color:#f92672">(</span>url<span style="color:#f92672">);</span>
+        HttpResponse response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span>httpGet<span style="color:#f92672">);</span>
+        HttpEntity entity <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span><span style="color:#a6e22e">getEntity</span><span style="color:#f92672">();</span>
+
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>entity <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+            String result <span style="color:#f92672">=</span> EntityUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>entity<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">);</span>
+            jsonObject <span style="color:#f92672">=</span> parseJSONP<span style="color:#f92672">(</span>result<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+
+        httpGet<span style="color:#f92672">.</span><span style="color:#a6e22e">releaseConnection</span><span style="color:#f92672">();</span>
+
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>jsonObject <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+            <span style="color:#66d9ef">return</span> jsonObject<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;openid&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">//qq返回信息：{ &#34;ret&#34;:0, &#34;msg&#34;:&#34;&#34;, &#34;nickname&#34;:&#34;YOUR_NICK_NAME&#34;, ... }，为JSON格式，直接使用JSONObject对象解析
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> JSONObject <span style="color:#a6e22e">getUserInfo</span><span style="color:#f92672">(</span>String url<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+        JSONObject jsonObject <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        CloseableHttpClient client <span style="color:#f92672">=</span> HttpClients<span style="color:#f92672">.</span><span style="color:#a6e22e">createDefault</span><span style="color:#f92672">();</span>
+
+        HttpGet httpGet <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HttpGet<span style="color:#f92672">(</span>url<span style="color:#f92672">);</span>
+        HttpResponse response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span>httpGet<span style="color:#f92672">);</span>
+        HttpEntity entity <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span><span style="color:#a6e22e">getEntity</span><span style="color:#f92672">();</span>
+
+
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>entity <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+            String result <span style="color:#f92672">=</span> EntityUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>entity<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">);</span>
+            jsonObject <span style="color:#f92672">=</span> JSONObject<span style="color:#f92672">.</span><span style="color:#a6e22e">parseObject</span><span style="color:#f92672">(</span>result<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+
+        httpGet<span style="color:#f92672">.</span><span style="color:#a6e22e">releaseConnection</span><span style="color:#f92672">();</span>
+
+        <span style="color:#66d9ef">return</span> jsonObject<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+
+</code></pre></div><script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+var a_idx = 0;
+jQuery(document).ready(function($) {
+    $("body").click(function(e) {
+        var a = new Array("❤哎嘿❤","❤哦豁❤","❤呀~❤","❤嗯？❤","❤点击❤","❤芜湖❤","❤滴❤","❤别点啦❤","❤没东西啦❤","❤瞎点~❤","❤我在哟❤","❤好看不❤");
+        var $i = $("<span></span>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,
+        y = e.pageY;
+        $i.css({
+            "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+        });
+        $("body").append($i);
+        $i.animate({
+            "top": y - 180,
+            "opacity": 0
+        },
+        1500,
+        function() {
+            $i.remove();
+        });
+    });
+});
+</script>
+<style>
+    .arrow{
+        border: 9px solid transparent;
+        border-bottom-color: #3DA0DB;
+        width: 0px;
+        height: 0px;
+        top:0px
+    }
+    .stick{
+        width: 8px;
+        height: 14px;
+        border-radius: 1px;
+        background-color: #3DA0DB;
+        top:15px;
+    }
+    #back_top div{
+        position: absolute;
+        margin: auto;
+        right: 0px;
+        left: 0px;
+    }
+    #back_top{
+        background-color: #dddddd;
+        height: 38px;
+        width: 38px;
+        border-radius: 3px;
+        display: block;
+        cursor: pointer;
+        position: fixed;
+        right: 50px;
+        bottom: 100px;
+        display: none;
+    }
+</style>
+<div id="article"></div>
+<div id="back_top">
+<div class="arrow"></div>
+<div class="stick"></div>
+</div>
+<script src="http://cdn.staticfile.org/jquery/1.11.1-rc2/jquery.min.js"></script>
+<script>
+$(function(){
+
+    $(window).scroll(function(){  //只要窗口滚动,就触发下面代码
+
+        var scrollt = document.documentElement.scrollTop + document.body.scrollTop; //获取滚动后的高度
+
+        if( scrollt >200 ){  //判断滚动后高度超过200px,就显示
+
+            $("#back_top").fadeIn(400); //淡入
+
+        }else{
+
+            $("#back_top").stop().fadeOut(400); //如果返回或者没有超过,就淡出.必须加上stop()停止之前动画,否则会出现闪动
+
+        }
+
+    });
+
+    $("#back_top").click(function(){ //当点击标签的时候,使用animate在200毫秒的时间内,滚到顶部
+
+        $("html,body").animate({scrollTop:"0px"},200);
+
+    }); 
+
+});
+</script>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+     
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 示例站点
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.5.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#引入第三方登入">引入第三方登入</a></li>
+    <li><a href="#git登入">git登入</a>
+      <ul>
+        <li><a href="#在git申请">在git申请</a></li>
+        <li><a href="#springboot里使用">SpringBoot里使用</a></li>
+      </ul>
+    </li>
+    <li><a href="#qq登入">qq登入</a>
+      <ul>
+        <li><a href="#在qq申请">在qq申请</a></li>
+        <li><a href="#在springboot里使用">在springboot里使用</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
